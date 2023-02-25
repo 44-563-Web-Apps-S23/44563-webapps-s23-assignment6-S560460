@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+ <head> <title>
+    Javascript Assignment
+ </title></head>
+<body>
+<h1>Painter entry Manoj Vamanaguntla </h1>
+<h2>Getting input</h2>
+
+<form>
+    <label for="Manoj"> The hidden painter name </label>
+    <input type ="password" id="Manoj" name="Manoj" value="Monet"> <br>
+    <label for="guesspaintername">Guess the painter </label>
+    <input type ="text" id="guesspaintername" name="guesspaintername" autofocus> <br> <br>
+    <input type="button" onclick="checkPainter();" value="check the guess">
+</form>
+<p id="results">Count of correct and wrong guess</p>
+
+<script> 
+var good=0;
+var oops=0; 
+
+function checkPainter(){
+    console.log("Getting from values")
+    paintername = document.getElementById("Manoj").value
+    guesspainter = document.getElementById("guesspaintername").value
+    out = document.getElementById("results")
+    if(paintername == guesspainter){    
+        alert("You got it right")
+        good = good + 1
+        out.innerHTML =  "Good count: "+good+"oops count: "+oops    
+    }
+    else{     
+        alert("Sorry")
+        oops=oops+1
+        out.innerHTML =  "Good count: "+good+"oops count: "+oops    
+    }
+}
+</script>
+</body>
+</html> 
