@@ -1,41 +1,67 @@
 <!DOCTYPE html>
 <html>
- <head> <title>
-    Javascript Assignment
- </title></head>
+    <head>
+        <title> Javascript Assignment</title>
+    </head>
+ 
 <body>
-<h1>Painter entry Manoj Vamanaguntla </h1>
+    <h1>Painter Entry Manoj Vamanaguntla</h1>
+
 <h2>Getting input</h2>
 
 <form>
-    <label for="Manoj"> The hidden painter name </label>
-    <input type ="password" id="Manoj" name="Manoj" value="Monet"> <br>
-    <label for="guesspaintername">Guess the painter </label>
-    <input type ="text" id="guesspaintername" name="guesspaintername" autofocus> <br> <br>
-    <input type="button" onclick="checkPainter();" value="check the guess">
+    <label for="hiddenpaintername">The Hidden Painter Name </label>
+    <input type ="password" value="Monet" id="hiddenpaintername"> <br>
+
+    <label for="guesspaintername">Guess the Painter</label>
+    <input type ="text" id="guesspaintername"> <br>
+
+    <input type="button" onclick="checkPainter()" value="Check the guess">
 </form>
-<p id="results">Count of correct and wrong guess</p>
+<div class="container">
+<img src="agave.jpg" id="image"onclick="selectImage()"
+alt="Abies.jpg" style="width:100px;height:100px;">
+</div>
+
+<p id="result">This text will be replaced </p>
 
 <script> 
-var good=0;
-var oops=0; 
 
-function checkPainter(){
-    console.log("Getting from values")
-    paintername = document.getElementById("Manoj").value
-    guesspainter = document.getElementById("guesspaintername").value
-    out = document.getElementById("results")
-    if(paintername == guesspainter){    
-        alert("You got it right")
-        good = good + 1
-        out.innerHTML =  "Good count: "+good+"oops count: "+oops    
+let good = 0;
+let oops = 0;
+useImage = 1;
+
+function  checkPainter(){
+    password = document.getElementById("hiddenpaintername").value
+    guess = document.getElementById("guesspaintername").value
+    if(password == guess) {
+        good = good + 1;
+        alert("You got it right");
+        //document.getElementById("result").innerHTML=good;
+    } else {
+        oops = oops + 1;
+        alert("Sorry");
+        //document.getElementById("result").innerHTML=oops;
     }
-    else{     
-        alert("Sorry")
-        oops=oops+1
-        out.innerHTML =  "Good count: "+good+"oops count: "+oops    
+    document.getElementById("result").innerHTML='Right count : ' + good + '.<br> Wrong count : ' + oops+'.';
+}
+function selectImage(){
+    switch (useImage){
+        case 1: useImage=useImage+1
+        image.src="agave.jpg";
+        break;
+        case 2: useImage=useImage+1
+        image.src="mahonia.jpg";
+        break;
+        case 3: useImage=useImage+1
+        image.src="verbena.jpg";
+        break;
     }
 }
+function giveAlert(){
+    alert("Sorry, ran out of guesses.");
+} 
 </script>
+
 </body>
-</html> 
+</html>
